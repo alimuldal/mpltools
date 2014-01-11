@@ -46,12 +46,15 @@ def update_user_library(base_library):
 
     library = copy.deepcopy(base_library)
 
-    stylelib_path = os.path.expanduser('~/.mplstylelib')
-    if os.path.exists(stylelib_path) and os.path.isdir(stylelib_path):
-        styles = read_style_directory(stylelib_path)
-        update_nested_dict(library, styles)
+    styles = {}
+    for path in ('~/.config/mplstylelib','~/.mplstylelib'):
+        stylelib_path = os.path.expanduser(path)
+        if os.path.exists(stylelib_path) and os.path.isdir(stylelib_path):
+            styles.update(read_style_directory(stylelib_path))
+            update_nested_dict(library, styles)
 
-    for cfg in _config.iter_paths(['~/.mplstyle', './mplstyle']):
+    for cfg in _config.iter_paths(['~/.mplstyle', '~/.config/mplstyle',
+                                    './mplstyle', '~/.config/mplstyle']):
         styles = read_style_dict(cfg)
         update_nested_dict(library, styles)
     return library

@@ -43,9 +43,10 @@ example the first few lines of the "ggplot" style looks like::
 Unlike matplotlibrc_ files, key/value pairs are separated by an equals sign and
 strings must be quoted.
 
-You can specify styles in either an ``mplstyle`` file or a ``*.rc`` file
-located in ``~/.mplstylelib/``. In an ``mplstyle`` file, style names should be
-specified as sections. A simple ``mplstyle`` file might look like::
+You can specify styles in either an ``mplstyle`` file or a ``*.rc`` file located
+in ``~/.mplstylelib/`` or ``~/.config/mplstyle``. In an ``mplstyle`` file, 
+style names should be specified as sections. A simple ``mplstyle`` file might 
+look like::
 
    [style1]
 
@@ -58,8 +59,9 @@ specified as sections. A simple ``mplstyle`` file might look like::
    font.family = 'serif'
 
 Alternatively, a single style is specified in each ``*.rc`` file found in
-``~/.mplstylelib/``, and the file name determines the style name. For example,
-a style file named ``~/.mplstylelib/mystyle.rc`` would define ``mystyle``.
+``~/.mplstylelib/`` or ``~/.config/mplstylelib/``, and the file name determines 
+the style name. For example, a style file named ``~/.mplstylelib/mystyle.rc`` 
+would define ``mystyle``.
 
 
 Style priority
